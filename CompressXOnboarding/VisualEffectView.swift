@@ -13,7 +13,7 @@ struct VisualEffectView: NSViewRepresentable {
 
     view.blendingMode = .behindWindow
     view.state = .active
-    view.material = .fullScreenUI
+    view.material = .menu
 
     return view
   }

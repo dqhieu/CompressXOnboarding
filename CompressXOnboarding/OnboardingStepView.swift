@@ -34,16 +34,18 @@ struct OnboardingStepView: View {
           .resizable()
           .frame(width: 20, height: 20)
           .contentTransition(.symbolEffect(.replace))
+          .symbolRenderingMode(isPastStep ? .multicolor : .hierarchical)
+          .foregroundStyle(isUpcomingStep ? .secondary : .primary)
       } else {
         Image(systemName: isPastStep ? "checkmark.circle.fill" : "\(index+1).circle.fill")
           .resizable()
           .frame(width: 20, height: 20)
+          .symbolRenderingMode(isPastStep ? .multicolor : .hierarchical)
+          .foregroundStyle(isUpcomingStep ? .secondary : .primary)
       }
       Text(allSteps[index].displayText)
         .fontWeight(.semibold)
-
     }
-    .foregroundStyle(isPastStep ? .green : isUpcomingStep ? .secondary : .primary)
     .opacity(isUpcomingStep ? 0.3 : 1)
     .padding(8)
     .background(
@@ -63,4 +65,5 @@ struct OnboardingStepView: View {
       }
     }
   }
+
 }
